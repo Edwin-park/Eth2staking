@@ -66,7 +66,8 @@ sudo apt-get install ethereum -y
 sudo useradd --no-create-home --shell /bin/false geth
 sudo mkdir -p /var/lib/geth
 sudo chown -R geth:geth /var/lib/geth
-
+echo ""
+echo "Geth 설치완료"
 
 #Lighthouse 설치
 cd ~
@@ -74,7 +75,8 @@ curl -LO https://github.com/sigp/lighthouse/releases/download/v$Lighthouse/light
 tar xvf lighthouse-v$Lighthouse-x86_64-unknown-linux-gnu.tar.gz
 sudo cp lighthouse /usr/local/bin
 sudo rm lighthouse lighthouse-v$Lighthouse-x86_64-unknown-linux-gnu.tar.gz
-
+echo ""
+echo "Lighthouse 설치완료"
 
 #비콘체인 설치
 sudo useradd --no-create-home --shell /bin/false lighthousebeacon
@@ -99,6 +101,8 @@ sudo cp mev-boost /usr/local/bin
 sudo chown mevboost:mevboost /usr/local/bin/mev-boost
 cd ~
 sudo rm mev-boost LICENSE README.md mev-boost_$Mev_linux_amd64.tar.gz
+echo ""
+echo "Lighthouse 설치완료"
 
 
 #Prater Testnet 서비스파일
@@ -325,7 +329,7 @@ sudo systemctl start lighthousebeacon
 sudo systemctl start lighthousevalidator
 sudo systemctl start mevboost
 echo ""
-echo "설치 완료입니다. "
+echo "최종설치 완료후 서비스 시작됩니다. "
 
 
 
