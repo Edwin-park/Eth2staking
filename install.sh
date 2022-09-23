@@ -183,7 +183,7 @@ ExecStart=/usr/local/bin/lighthouse vc \\
   --beacon-nodes http://localhost:5052 \\
   --datadir /var/lib/lighthouse \\
   --metrics \\
-  --suggested-fee-recipient "$address" \\
+  --suggested-fee-recipient $address \\
   --builder-proposals
 
 Restart=always
@@ -288,7 +288,7 @@ ExecStart=/usr/local/bin/lighthouse vc \\
   --beacon-nodes http://localhost:5052 \\
   --datadir /var/lib/lighthouse \\
   --metrics \\
-  --suggested-fee-recipient "$address" \\
+  --suggested-fee-recipient $address \\
   --builder-proposals
 
 Restart=always
