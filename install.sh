@@ -105,7 +105,7 @@ tar xvf mev-boost_"$Mev"_linux_amd64.tar.gz
 sudo cp mev-boost /usr/local/bin
 sudo chown mevboost:mevboost /usr/local/bin/mev-boost
 cd ~
-sudo rm mev-boost LICENSE README.md mev-boost_$Mev_linux_amd64.tar.gz
+sudo rm mev-boost LICENSE README.md mev-boost_"$Mev"_linux_amd64.tar.gz
 echo ""
 echo "Mev-Boost 설치완료"
 echo ""
@@ -183,7 +183,7 @@ ExecStart=/usr/local/bin/lighthouse vc \\
   --beacon-nodes http://localhost:5052 \\
   --datadir /var/lib/lighthouse \\
   --metrics \\
-  --suggested-fee-recipient $address \\
+  --suggested-fee-recipient "$address" \\
   --builder-proposals
 
 Restart=always
@@ -288,7 +288,7 @@ ExecStart=/usr/local/bin/lighthouse vc \\
   --beacon-nodes http://localhost:5052 \\
   --datadir /var/lib/lighthouse \\
   --metrics \\
-  --suggested-fee-recipient $address \\
+  --suggested-fee-recipient "$address" \\
   --builder-proposals
 
 Restart=always
