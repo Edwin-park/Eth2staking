@@ -54,6 +54,11 @@ read -p "설치시작 [y , n] : " check
 if [ "$check" = "y" ] ; then 
   echo "설치 시작합니다. "
 
+sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
+sudo timedatectl set-timezone Asia/Seoul
+
+
+
 #JWT 파일생성
 cd ~
 sudo mkdir -p /var/lib/jwtsecret
