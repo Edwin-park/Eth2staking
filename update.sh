@@ -49,6 +49,7 @@ if [ "$check" = "y" ] ; then
     sudo systemctl stop geth
     sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
     sudo systemctl start geth
+    echo ""
     geth version
     echo ""
     echo "Geth 및 시스템전체 업데이트 완료"
@@ -63,6 +64,7 @@ if [ "$check" = "y" ] ; then
     sudo rm lighthouse lighthouse-v"$Lighthouse"-x86_64-unknown-linux-gnu.tar.gz
     sudo systemctl start lighthousebeacon
     sudo systemctl start lighthousevalidator
+    echo ""
     cd ~ && /usr/local/bin/lighthouse --version
     echo ""
     echo "Lighthouse 업데이트 완료"
@@ -76,6 +78,7 @@ if [ "$check" = "y" ] ; then
     sudo chown mevboost:mevboost /usr/local/bin/mev-boost
     sudo rm mev-boost LICENSE README.md mev-boost_"$Mev"_linux_amd64.tar.gz
     sudo systemctl start mevboost
+    echo ""
     cd ~ && mev-boost -version
     echo ""
     echo "Mev-Boost 업데이트 완료"
@@ -88,7 +91,7 @@ fi
 
 
 elif [ "$check" = "n" ] ; then 
-  echo "설치 취소합니다. "
+  echo "업데이트 취소합니다. "
   exit
 
 
