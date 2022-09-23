@@ -49,8 +49,9 @@ if [ "$check" = "y" ] ; then
     sudo systemctl stop geth
     sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
     sudo systemctl start geth
+    geth version
     echo ""
-    echo "Geth 업데이트 완료"
+    echo "Geth 및 시스템전체 업데이트 완료"
     echo ""
   elif [ "$select" = "2" ] ; then 
     cd ~
@@ -60,6 +61,7 @@ if [ "$check" = "y" ] ; then
     sudo cp lighthouse /usr/local/bin
     sudo rm lighthouse lighthouse-v"$Lighthouse"-x86_64-unknown-linux-gnu.tar.gz
     sudo systemctl start lighthousebeacon
+    cd ~ && /usr/local/bin/lighthouse --version
     echo ""
     echo "Lighthouse 업데이트 완료"
     echo ""
@@ -72,6 +74,7 @@ if [ "$check" = "y" ] ; then
     sudo chown mevboost:mevboost /usr/local/bin/mev-boost
     sudo rm mev-boost LICENSE README.md mev-boost_"$Mev"_linux_amd64.tar.gz
     sudo systemctl start mevboost
+    cd ~ && mev-boost -version
     echo ""
     echo "Mev-Boost 업데이트 완료"
     echo ""
