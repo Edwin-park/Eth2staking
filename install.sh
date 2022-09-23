@@ -58,6 +58,8 @@ if [ "$check" = "y" ] ; then
 cd ~
 sudo mkdir -p /var/lib/jwtsecret
 openssl rand -hex 32 | sudo tee /var/lib/jwtsecret/jwt.hex > /dev/null
+echo ""
+echo "JWT 생성완료"
 
 #geth 설치
 sudo add-apt-repository -y ppa:ethereum/ethereum
@@ -322,14 +324,15 @@ fi
 
 
 
+echo ""
+echo "최종설치 완료후 서비스 시작됩니다. "
 
 sudo systemctl daemon-reload
 sudo systemctl start geth
 sudo systemctl start lighthousebeacon
 sudo systemctl start lighthousevalidator
 sudo systemctl start mevboost
-echo ""
-echo "최종설치 완료후 서비스 시작됩니다. "
+
 echo "geth 로그 보는법 : g.log"
 echo "beacon 로그 보는법 : lb.log"
 echo "validator 로그 보는법 : lv.log"
