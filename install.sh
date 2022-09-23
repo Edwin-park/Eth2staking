@@ -71,10 +71,10 @@ echo "Geth 설치완료"
 
 #Lighthouse 설치
 cd ~
-curl -LO https://github.com/sigp/lighthouse/releases/download/v$Lighthouse/lighthouse-v$Lighthouse-x86_64-unknown-linux-gnu.tar.gz
-tar xvf lighthouse-v$Lighthouse-x86_64-unknown-linux-gnu.tar.gz
+curl -LO https://github.com/sigp/lighthouse/releases/download/v"$Lighthouse"/lighthouse-v"$Lighthouse"-x86_64-unknown-linux-gnu.tar.gz
+tar xvf lighthouse-v"$Lighthouse"-x86_64-unknown-linux-gnu.tar.gz
 sudo cp lighthouse /usr/local/bin
-sudo rm lighthouse lighthouse-v$Lighthouse-x86_64-unknown-linux-gnu.tar.gz
+sudo rm lighthouse lighthouse-v"$Lighthouse"-x86_64-unknown-linux-gnu.tar.gz
 echo ""
 echo "Lighthouse 설치완료"
 
@@ -95,14 +95,14 @@ sudo chmod 700 /var/lib/lighthouse/validators
 #MEV-Boost 설치
 sudo useradd --no-create-home --shell /bin/false mevboost
 cd ~
-curl -LO https://github.com/flashbots/mev-boost/releases/download/v$Mev/mev-boost_$Mev_linux_amd64.tar.gz
-tar xvf mev-boost_$Mev_linux_amd64.tar.gz
+curl -LO https://github.com/flashbots/mev-boost/releases/download/v"$Mev"/mev-boost_"$Mev"_linux_amd64.tar.gz
+tar xvf mev-boost_"$Mev"_linux_amd64.tar.gz
 sudo cp mev-boost /usr/local/bin
 sudo chown mevboost:mevboost /usr/local/bin/mev-boost
 cd ~
 sudo rm mev-boost LICENSE README.md mev-boost_$Mev_linux_amd64.tar.gz
 echo ""
-echo "Lighthouse 설치완료"
+echo "Mev-Boost 설치완료"
 
 
 #Prater Testnet 서비스파일
@@ -330,6 +330,10 @@ sudo systemctl start lighthousevalidator
 sudo systemctl start mevboost
 echo ""
 echo "최종설치 완료후 서비스 시작됩니다. "
+echo "geth 로그 보는법 : g.log"
+echo "beacon 로그 보는법 : lb.log"
+echo "validator 로그 보는법 : lv.log"
+echo "mev 로그 보는법 : mev.log"
 
 
 
