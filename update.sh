@@ -57,10 +57,12 @@ if [ "$check" = "y" ] ; then
     cd ~
     curl -LO https://github.com/sigp/lighthouse/releases/download/v"$Lighthouse"/lighthouse-v"$Lighthouse"-x86_64-unknown-linux-gnu.tar.gz
     tar xvf lighthouse-v"$Lighthouse"-x86_64-unknown-linux-gnu.tar.gz
+    sudo systemctl stop lighthousevalidator
     sudo systemctl stop lighthousebeacon
     sudo cp lighthouse /usr/local/bin
     sudo rm lighthouse lighthouse-v"$Lighthouse"-x86_64-unknown-linux-gnu.tar.gz
     sudo systemctl start lighthousebeacon
+    sudo systemctl start lighthousevalidator
     cd ~ && /usr/local/bin/lighthouse --version
     echo ""
     echo "Lighthouse 업데이트 완료"
