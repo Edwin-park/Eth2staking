@@ -328,19 +328,16 @@ fi
 
 
 echo ""
-echo "최종설치 완료후 서비스 시작됩니다. "
+echo "최종설치 완료! geth, beacon 서비스 시작! "
 echo ""
 
 sudo systemctl daemon-reload
 sudo systemctl start geth
 sudo systemctl start lighthousebeacon
-sudo systemctl start lighthousevalidator
-sudo systemctl start mevboost
 
 echo "geth 로그 보는법 : g.log"
 echo "beacon 로그 보는법 : lb.log"
-echo "validator 로그 보는법 : lv.log"
-echo "mev 로그 보는법 : mev.log"
+
 
 
 
