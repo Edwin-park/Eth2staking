@@ -16,7 +16,8 @@ else
 fi
 
 
-echo -n "블록제안 Tip 수령주소를 입력해주세요. : "
+echo "블록제안 Tip 수령주소를 입력해주세요. "
+echo -n " ex : [ 0xAa83d6C8A07492a28Af2DfDb57Fe69306362f02E ] : "
 read address
 
 
