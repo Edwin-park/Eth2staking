@@ -60,6 +60,7 @@ sudo mkdir -p /var/lib/jwtsecret
 openssl rand -hex 32 | sudo tee /var/lib/jwtsecret/jwt.hex > /dev/null
 echo ""
 echo "JWT 생성완료"
+echo ""
 
 #geth 설치
 sudo add-apt-repository -y ppa:ethereum/ethereum
@@ -70,6 +71,7 @@ sudo mkdir -p /var/lib/geth
 sudo chown -R geth:geth /var/lib/geth
 echo ""
 echo "Geth 설치완료"
+echo ""
 
 #Lighthouse 설치
 cd ~
@@ -79,6 +81,7 @@ sudo cp lighthouse /usr/local/bin
 sudo rm lighthouse lighthouse-v"$Lighthouse"-x86_64-unknown-linux-gnu.tar.gz
 echo ""
 echo "Lighthouse 설치완료"
+echo ""
 
 #비콘체인 설치
 sudo useradd --no-create-home --shell /bin/false lighthousebeacon
@@ -105,7 +108,7 @@ cd ~
 sudo rm mev-boost LICENSE README.md mev-boost_$Mev_linux_amd64.tar.gz
 echo ""
 echo "Mev-Boost 설치완료"
-
+echo ""
 
 #Prater Testnet 서비스파일
 if [ "$network" = "1" ] ; then 
@@ -326,6 +329,7 @@ fi
 
 echo ""
 echo "최종설치 완료후 서비스 시작됩니다. "
+echo ""
 
 sudo systemctl daemon-reload
 sudo systemctl start geth
