@@ -52,22 +52,10 @@ read address
 
 
 
-# Client selection
-	echo ""
-	echo " 설치할ver"
-	echo "---------------------------------------------------------------"
-	echo -e "\033[0m""  1. geth (\033[0m"" ver : ""\033[31;1m""$lst_vGE""\033[0m"")"
-	echo ""
-	echo -e "\033[0m""  2. lighthouse (\033[0m"" ver : ""\033[31;1m""$lst_vLH""\033[0m"")"
-	echo ""
-	echo -e "\033[0m""  3. MEV-boost (\033[0m"" ver : ""\033[31;1m""$lst_vME""\033[0m"")"
-	echo "---------------------------------------------------------------"
-	echo ""
 
 
-
-
-
+echo "---------------------------------------------------------------"
+echo ""
 echo "네트워크 및 클라이언트 버전 최종확인"
 echo ""
 echo "네트워크 : $network2"
@@ -76,7 +64,7 @@ echo "Geth v$lst_vGE"
 echo "Lighthous v$lst_vLH"
 echo "Mev-Boost v$lst_vME"
 echo ""
-
+echo "---------------------------------------------------------------"
 
 
 read -p "설치시작 [y , n] : " check
