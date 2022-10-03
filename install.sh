@@ -337,14 +337,14 @@ echo "4단계 이어서 진행하시면 됩니다!"
 
 
 elif [ "$check" = "n" ] ; then 
-  echo "설치 취소합니다. "
+  echo "설치를 취소합니다. "
   exit
 
 
 
 
 else
-  echo "입력 확인해주세요! [y, n]"
+  echo "입력을 확인해주세요! [y, n]"
   exit
 
 fi
