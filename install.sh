@@ -94,7 +94,7 @@ sudo useradd --no-create-home --shell /bin/false geth
 sudo mkdir -p /var/lib/geth
 sudo chown -R geth:geth /var/lib/geth
 echo ""
-echo "Geth 설치완료"
+echo "Geth v"$lst_vGE" 설치완료"
 echo ""
 
 #Lighthouse 설치
@@ -320,19 +320,28 @@ fi
 
 
 
+echo "---------------------------------------------------------------"
+echo ""
+echo "최종설치 완료! geth, beacon 서비스 시작 !"
+echo ""
+echo "네트워크 : $network2"
+echo "Tip 수령주소 : $address"
+echo "Geth v$lst_vGE"
+echo "Lighthous v$lst_vLH"
+echo "Mev-Boost v$lst_vME"
+echo ""
+echo "geth 로그 보는법 : g.log"
+echo "beacon 로그 보는법 : lb.log"
+echo ""
+echo "4단계 이어서 진행하시면 됩니다!"
+echo "---------------------------------------------------------------"
 
-echo ""
-echo "최종설치 완료! geth, beacon 서비스 시작! "
-echo ""
 
 sudo systemctl daemon-reload
 sudo systemctl start geth
 sudo systemctl start lighthousebeacon
 
-echo "geth 로그 보는법 : g.log"
-echo "beacon 로그 보는법 : lb.log"
-echo ""
-echo "4단계 이어서 진행하시면 됩니다!"
+
 
 
 
