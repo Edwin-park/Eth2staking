@@ -1,4 +1,7 @@
 # Eth2staking
 
 
-업그레이드 자동셋팅
+3단계 자동설치 : all.install
+
+클라이언트 업데이트 : n.update
+
