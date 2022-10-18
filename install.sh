@@ -4,9 +4,10 @@
 echo ""
 echo ""
 echo "---------------------------------"
-echo -e "  자동 설치 ver : ""\033[32m"22.10.03"\033[0m"""
+echo -e "  자동 설치 ver : ""\033[32m"22.10.18"\033[0m"""
 echo ""
-echo "  클라이언트 버전 자동확인"
+echo "  체크포인트 주소 변경"
+echo "  https://beaconstate.ethstaker.cc"
 echo "---------------------------------"
 echo ""
 echo ""
@@ -178,7 +179,7 @@ ExecStart=/usr/local/bin/lighthouse bn \\
   --execution-jwt /var/lib/jwtsecret/jwt.hex \\
   --port 9001 \\
   --discovery-port 9001 \\
-  --checkpoint-sync-url https://26nBBRbB6LXwiG9j68YEx0jJ9zE:d32d9dd0eaecadb8a99b7fa6443a19e8@eth2-beacon-prater.infura.io \\
+  --checkpoint-sync-url https://goerli.beaconstate.ethstaker.cc \\
   --builder http://localhost:18550
 Restart=always
 RestartSec=5
@@ -268,7 +269,7 @@ ExecStart=/usr/local/bin/lighthouse bn \\
   --execution-jwt /var/lib/jwtsecret/jwt.hex \\
   --port 9002 \\
   --discovery-port 9002 \\
-  --checkpoint-sync-url https://26pgNISME52yCryWfyA0jNQPYDe:80d95be613e437ff37ee8024f2fb4d4e@eth2-beacon-mainnet.infura.io \\
+  --checkpoint-sync-url https://beaconstate.ethstaker.cc \\
   --builder http://localhost:18550
 Restart=always
 RestartSec=5
