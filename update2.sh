@@ -4,7 +4,7 @@
 echo ""
 echo ""
 echo "---------------------------------"
-echo -e "  자동 업데이트 ver : ""\033[32m"22.10.02"\033[0m"""
+echo -e "  자동 업데이트 ver : ""\033[32m"23.04.19"\033[0m"""
 echo "---------------------------------"
 echo ""
 echo ""
@@ -16,41 +16,27 @@ echo ""
 
 
 # Check versions of installed clients
-	ins_vGE1=$(geth version | grep Version)
-	ins_vGE2=${ins_vGE1%-stable*}
-	ins_vGE=${ins_vGE2#*Version: }
-
-	ins_vLH1=$(lighthouse --version | grep "Lighthouse v")
-	ins_vLH2=${ins_vLH1#*v}
-	ins_vLH=${ins_vLH2%-*}
-
-	ins_vME1=$(mev-boost --version | grep mev-boost)
-	ins_vME=${ins_vME1#*boost }
+	ins_vR1=$(rocketpool -V | grep version)
+	ins_vR=${ins_vR1#*version }
+	
 
 
+
+https://github.com/rocket-pool/smartnode-install/releases/latest
 
 # Check the latest versions of clients
-	lst_vGE1=$(curl -s -I https://github.com/ethereum/go-ethereum/releases/latest | grep tag)
-	lst_vGE2=${lst_vGE1#*tag/v}
-	lst_vGE=$(echo $lst_vGE2 | sed 's/\r$//')
+	lst_vR1=$(curl -s -I https://github.com/rocket-pool/smartnode-install/releases/latest | grep tag)
+	lst_vR2=${lst_vR1#*tag/v}
+	lst_vR=$(echo $lst_vR2 | sed 's/\r$//')
 
-	lst_vLH1=$(curl -s -I https://github.com/sigp/lighthouse/releases/latest | grep tag)
-	lst_vLH2=${lst_vLH1#*tag/v}
-	lst_vLH=$(echo $lst_vLH2 | sed 's/\r$//')
 
-	lst_vME1=$(curl -s -I https://github.com/flashbots/mev-boost/releases/latest | grep tag)
-	lst_vME2=${lst_vME1#*tag/v}
-	lst_vME=$(echo $lst_vME2 | sed 's/\r$//')
 
 # Client selection
 	echo ""
 	echo " 현재ver / 설치할ver"
 	echo "---------------------------------------------------------------"
-	echo -e "\033[0m""  1. geth (현재ver : ""\033[32m""$ins_vGE""\033[0m"" / 설치할ver : ""\033[31;1m""$lst_vGE""\033[0m"")"
+	echo -e "\033[0m""  RocketPool (현재ver : ""\033[32m""$ins_vR""\033[0m"" / 설치할ver : ""\033[31;1m""$lst_vR""\033[0m"")"
 	echo ""
-	echo -e "\033[0m""  2. lighthouse (현재ver : ""\033[32m""$ins_vLH""\033[0m"" / 설치할ver : ""\033[31;1m""$lst_vLH""\033[0m"")"
-	echo ""
-	echo -e "\033[0m""  3. MEV-boost (현재ver : ""\033[32m""$ins_vME""\033[0m"" / 설치할ver : ""\033[31;1m""$lst_vME""\033[0m"")"
 	echo "---------------------------------------------------------------"
 	echo ""
 
