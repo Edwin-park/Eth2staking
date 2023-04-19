@@ -53,12 +53,15 @@ if [ "$check" = "y" ] ; then
   sudo /home/staker/bin/rocketpool service stop
   sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
   wget https://github.com/rocket-pool/smartnode-install/releases/latest/download/rocketpool-cli-linux-amd64 -O /home/staker/bin/rocketpool
-  sudo /home/staker/bin/rocketpool service start
+  sudo /home/staker/bin/rocketpool service install -d
   echo ""
   echo ""
   echo "시스템 전체(보안) 업데이트 완료!"
   echo ""
   echo "RocketPool v"$lst_vR" 업데이트 완료!"
+  echo ""
+  sudo /home/staker/bin/rocketpool service version
+  sudo /home/staker/bin/rocketpool service start
   echo ""
     
 
