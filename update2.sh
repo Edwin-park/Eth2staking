@@ -4,7 +4,7 @@
 echo ""
 echo ""
 echo "---------------------------------"
-echo -e "  자동 업데이트 ver : ""\033[32m"23.04.19"\033[0m"""
+echo -e "  자동 업데이트 ver : ""\033[32m"23.04.20"\033[0m"""
 echo "---------------------------------"
 echo ""
 echo ""
@@ -43,25 +43,23 @@ echo ""
 
 echo ""
 
-echo " 로켓풀 서비스는 중지되고, 시스템 및 로켓풀 업데이트후 재 시작됩니다. "
-read -p " 업데이트를 시작할까요? [y , n] : " check
+echo " [주의] 로켓풀 서비스는 중지하시고, 시스템 및 로켓풀 업데이트를 시작하세요! "
+read -p " r.stop 했나요? 업데이트를 시작할까요? [y , n] : " check
 
 
 if [ "$check" = "y" ] ; then 
   echo "업데이트를 시작합니다... "
 
-  sudo /home/staker/bin/rocketpool service stop
   sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
   wget https://github.com/rocket-pool/smartnode-install/releases/latest/download/rocketpool-cli-linux-amd64 -O /home/staker/bin/rocketpool
-  sudo /home/staker/bin/rocketpool service install -d
   echo ""
   echo ""
   echo "시스템 전체(보안) 업데이트 완료!"
   echo ""
   echo "RocketPool v"$lst_vR" 업데이트 완료!"
   echo ""
-  sudo /home/staker/bin/rocketpool service version
-  sudo /home/staker/bin/rocketpool service start
+  echo " r.install <- 명령어 실행후 r.start "
+  echo ""
   echo ""
     
 
