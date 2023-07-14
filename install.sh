@@ -157,6 +157,7 @@ ExecStart=geth \\
   --authrpc.vhosts="*"
 Restart=always
 RestartSec=5
+TimeoutSec=900
 [Install]
 WantedBy=multi-user.target
 EOF
@@ -247,6 +248,7 @@ ExecStart=geth \\
   --authrpc.vhosts="*"
 Restart=always
 RestartSec=5
+TimeoutSec=900
 [Install]
 WantedBy=multi-user.target
 EOF
