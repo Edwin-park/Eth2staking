@@ -151,10 +151,10 @@ ExecStart=geth \\
   --pprof \\
   --http \\
   --http.addr=0.0.0.0 \\
-  --cache=2048 \\
   --port=10001 \\
   --authrpc.jwtsecret /var/lib/jwtsecret/jwt.hex \\
-  --authrpc.vhosts="*"
+  --authrpc.vhosts="*" \\
+  --state.scheme=path
 Restart=always
 RestartSec=5
 TimeoutSec=900
@@ -242,10 +242,10 @@ ExecStart=geth \\
   --pprof \\
   --http \\
   --http.addr=0.0.0.0 \\
-  --cache=8192 \\
   --port=20001 \\
   --authrpc.jwtsecret /var/lib/jwtsecret/jwt.hex \\
-  --authrpc.vhosts="*"
+  --authrpc.vhosts="*" \\
+  --state.scheme=path
 Restart=always
 RestartSec=5
 TimeoutSec=900
