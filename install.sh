@@ -4,9 +4,10 @@
 echo ""
 echo ""
 echo "---------------------------------"
-echo -e "  자동 설치 ver : ""\033[32m"22.12.24"\033[0m"""
+echo -e "  자동 설치 ver : ""\033[32m"24.08.20"\033[0m"""
 echo ""
-echo "  Mev 릴레이 주소변경(5개) "
+echo "  Holesky Testnet 업데이트 "
+echo "  Mev 릴레이 주소변경(8개) "
 echo ""
 echo "---------------------------------"
 echo ""
@@ -18,13 +19,13 @@ echo ""
 
 
 echo "설치하실 네트워크를 선택해주세요"
-echo "1 : Prater Testnet"
+echo "1 : Holesky Testnet"
 echo "2 : Main net"
 echo -n "[1,2] 엽력 : "
 read network
 
 if [ "$network" = "1" ] ; then 
-  network2="Prater Testnet"
+  network2="Holesky Testnet"
 elif [ "$network" = "2" ] ; then 
   network2="Main net"
 else
@@ -135,7 +136,7 @@ echo ""
 echo "Mev-Boost v"$lst_vME" 설치완료"
 echo ""
 
-#Prater Testnet 서비스파일
+#Holesky Testnet 서비스파일
 if [ "$network" = "1" ] ; then 
 cat > /etc/systemd/system/geth.service << EOF
 [Unit]
@@ -145,7 +146,7 @@ After=network-online.target
 Type=simple
 User=geth
 ExecStart=geth \\
-  --goerli \\
+  --holesky \\
   --datadir /var/lib/geth \\
   --metrics \\
   --pprof \\
@@ -170,7 +171,7 @@ Type=simple
 User=lighthousebeacon
 Group=lighthousebeacon
 ExecStart=/usr/local/bin/lighthouse bn \\
-  --network prater \\
+  --network holesky \\
   --datadir /var/lib/lighthouse \\
   --http \\
   --http-address=0.0.0.0 \\
@@ -196,7 +197,7 @@ Type=simple
 User=lighthousevalidator
 Group=lighthousevalidator
 ExecStart=/usr/local/bin/lighthouse vc \\
-  --network prater \\
+  --network holesky \\
   --beacon-nodes http://localhost:5052 \\
   --datadir /var/lib/lighthouse \\
   --metrics \\
@@ -216,9 +217,9 @@ Type=simple
 User=mevboost
 Group=mevboost
 ExecStart=mev-boost \\
-    -goerli \\
+    -holesky \\
     -relay-check \\
-    -relays https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@builder-relay-goerli.flashbots.net,https://0x821f2a65afb70e7f2e820a925a9b4c80a159620582c1766b1b09729fec178b11ea22abb3a51f07b288be815a1a2ff516@bloxroute.max-profit.builder.goerli.blxrbdn.com,https://0x8f7b17a74569b7a57e9bdafd2e159380759f5dc3ccbd4bf600414147e8c4e1dc6ebada83c0139ac15850eb6c975e82d0@builder-relay-goerli.blocknative.com,https://0xaa1488eae4b06a1fff840a2b6db167afc520758dc2c8af0dfb57037954df3431b747e2f900fe8805f05d635e9a29717b@relay-goerli.edennetwork.io
+    -relays https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-holesky.flashbots.net,https://0xb1d229d9c21298a87846c7022ebeef277dfc321fe674fa45312e20b5b6c400bfde9383f801848d7837ed5fc449083a12@relay-holesky.edennetwork.io,https://0x821f2a65afb70e7f2e820a925a9b4c80a159620582c1766b1b09729fec178b11ea22abb3a51f07b288be815a1a2ff516@bloxroute.holesky.blxrbdn.com,https://0xaa58208899c6105603b74396734a6263cc7d947f444f396a90f7b7d3e65d102aec7e5e5291b27e08d02c50a050825c2f@holesky.titanrelay.xyz,https://0xab78bf8c781c58078c3beb5710c57940874dd96aef2835e7742c866b4c7c0406754376c2c8285a36c630346aa5c5f833@holesky.aestus.live,https://0xb1559beef7b5ba3127485bbbb090362d9f497ba64e177ee2c8e7db74746306efad687f2cf8574e38d70067d40ef136dc@relay-stag.ultrasound.money
 Restart=always
 RestartSec=5
 [Install]
