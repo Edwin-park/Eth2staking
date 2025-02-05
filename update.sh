@@ -27,10 +27,6 @@ echo ""
 	ins_vME1=$(mev-boost --version 2>&1 | grep -oP '(?<=mev-boost )[\d.]+' | head -n 1)
 	ins_vME=$ins_vME1
 
-	# ins_vME1=$(mev-boost --version | grep -Eo 'mev-boost [0-9.]+' | awk '{print $2}')
-	# ins_vME=${ins_vME1#*boost }
-
-
 
 # Check the latest versions of clients
 	lst_vGE1=$(curl -s -I https://github.com/ethereum/go-ethereum/releases/latest | grep tag)
@@ -68,8 +64,11 @@ echo "2 : Lighthous"
 echo "3 : Mev-Boost"
 echo ""
 echo ""
-echo "  자동 재시작 Off  "
+echo "---------------------------------------------------------------"
+echo " 자동 재시작 Off "
 echo " g.start / lb.start / lv.start / mev.start 해야됨 "
+echo "---------------------------------------------------------------"
+
 echo ""
 echo ""
 echo -n "[1,2,3] 엽력 : "
