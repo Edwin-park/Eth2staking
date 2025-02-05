@@ -5,8 +5,6 @@ echo ""
 echo ""
 echo "---------------------------------"
 echo -e "  자동 업데이트 ver : ""\033[32m"25.02.05"\033[0m"""
-echo "  자동 재시작 Off  "
-echo " g.start / lb.start / lv.start / mev.start 해야됨 "
 echo "---------------------------------"
 echo ""
 echo ""
@@ -26,7 +24,7 @@ echo ""
 	ins_vLH2=${ins_vLH1#*v}
 	ins_vLH=${ins_vLH2%-*}
 
-	ins_vME1=$(mev-boost --version | grep mev-boost)
+	ins_vME1=$(mev-boost --version | awk '{for(i=1;i<=NF;i++) if($i ~ /mev-boost/) print $(i+1)}')
 	ins_vME=${ins_vME1#*boost }
 
 
@@ -65,6 +63,11 @@ echo ""
 echo "1 : Geth + 시스템전체"
 echo "2 : Lighthous"
 echo "3 : Mev-Boost"
+echo ""
+echo ""
+echo "  자동 재시작 Off  "
+echo " g.start / lb.start / lv.start / mev.start 해야됨 "
+echo ""
 echo ""
 echo -n "[1,2,3] 엽력 : "
 read select
