@@ -25,7 +25,10 @@ echo ""
 	ins_vLH=${ins_vLH2%-*}
 
 	ins_vME1=$(mev-boost --version | grep -Eo 'mev-boost [0-9.]+' | awk '{print $2}')
-	ins_vME=${ins_vME1#*boost }
+	ins_vME=$ins_vME1
+
+	# ins_vME1=$(mev-boost --version | grep -Eo 'mev-boost [0-9.]+' | awk '{print $2}')
+	# ins_vME=${ins_vME1#*boost }
 
 
 
