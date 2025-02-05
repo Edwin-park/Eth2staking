@@ -4,7 +4,9 @@
 echo ""
 echo ""
 echo "---------------------------------"
-echo -e "  자동 업데이트 ver : ""\033[32m"22.10.02"\033[0m"""
+echo -e "  자동 업데이트 ver : ""\033[32m"25.02.05"\033[0m"""
+echo "  자동 재시작 Off  "
+echo " g.start / lb.start / lv.start / mev.start 해야됨 "
 echo "---------------------------------"
 echo ""
 echo ""
@@ -80,7 +82,6 @@ if [ "$check" = "y" ] ; then
   if [ "$select" = "1" ] ; then 
     sudo systemctl stop geth
     sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
-    sudo systemctl start geth
     echo ""
     echo ""
     ins_vGE1n=$(geth version | grep Version)
@@ -98,8 +99,6 @@ if [ "$check" = "y" ] ; then
     sudo systemctl stop lighthousebeacon
     sudo cp lighthouse /usr/local/bin
     sudo rm lighthouse lighthouse-v"$lst_vLH"-x86_64-unknown-linux-gnu.tar.gz
-    sudo systemctl start lighthousebeacon
-    sudo systemctl start lighthousevalidator
     echo ""
     echo ""
     ins_vLH1n=$(lighthouse --version | grep "Lighthouse v")
@@ -117,7 +116,6 @@ if [ "$check" = "y" ] ; then
     sudo cp mev-boost /usr/local/bin
     sudo chown mevboost:mevboost /usr/local/bin/mev-boost
     sudo rm mev-boost LICENSE README.md mev-boost_"$lst_vME"_linux_amd64.tar.gz
-    sudo systemctl start mevboost
     echo ""
     echo ""
     ins_vME1n=$(mev-boost --version | grep mev-boost)
