@@ -4,9 +4,9 @@
 echo ""
 echo ""
 echo "---------------------------------"
-echo -e "  자동 설치 ver : ""\033[32m"25.02.08"\033[0m"""
+echo -e "  자동 설치 ver : ""\033[32m"25.08.07"\033[0m"""
 echo ""
-echo "  Mev 릴레이 주소변경 "
+echo "  버전확인 수정 "
 echo ""
 echo "---------------------------------"
 echo ""
@@ -34,22 +34,15 @@ fi
 
 
 echo "블록제안 Tip 수령주소를 입력해주세요. "
-echo -n " ex : [ 0xAa83d6C8A07492a28Af2DfDb57Fe69306362f02E ] : "
+echo -n " ex : [ 0x388C818CA8B9251b393131C08a736A67ccB19297 ] : "
 read address
 
 
-# Check the latest versions of clients
-	lst_vGE1=$(curl -s -I https://github.com/ethereum/go-ethereum/releases/latest | grep tag)
-	lst_vGE2=${lst_vGE1#*tag/v}
-	lst_vGE=$(echo $lst_vGE2 | sed 's/\r$//')
 
-	lst_vLH1=$(curl -s -I https://github.com/sigp/lighthouse/releases/latest | grep tag)
-	lst_vLH2=${lst_vLH1#*tag/v}
-	lst_vLH=$(echo $lst_vLH2 | sed 's/\r$//')
-
-	lst_vME1=$(curl -s -I https://github.com/flashbots/mev-boost/releases/latest | grep tag)
-	lst_vME2=${lst_vME1#*tag/v}
-	lst_vME=$(echo $lst_vME2 | sed 's/\r$//')
+ # Check the latest versions of clients
+	lst_vGE=$(curl -s -L -o /dev/null -w '%{url_effective}' https://github.com/ethereum/go-ethereum/releases/latest | sed 's|.*/tag/v||')
+	lst_vLH=$(curl -s -L -o /dev/null -w '%{url_effective}' https://github.com/sigp/lighthouse/releases/latest | sed 's|.*/tag/v||')
+	lst_vME=$(curl -s -L -o /dev/null -w '%{url_effective}' https://github.com/flashbots/mev-boost/releases/latest | sed 's|.*/tag/v||')
 
 
 
