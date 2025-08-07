@@ -4,7 +4,7 @@
 echo ""
 echo ""
 echo "---------------------------------"
-echo -e "  자동 업데이트 ver : ""\033[32m"25.02.05"\033[0m"""
+echo -e "  자동 업데이트 ver : ""\033[32m"25.08.07"\033[0m"""
 echo "---------------------------------"
 echo ""
 echo ""
@@ -29,17 +29,10 @@ echo ""
 
 
 # Check the latest versions of clients
-	lst_vGE1=$(curl -s -I https://github.com/ethereum/go-ethereum/releases/latest | grep tag)
-	lst_vGE2=${lst_vGE1#*tag/v}
-	lst_vGE=$(echo $lst_vGE2 | sed 's/\r$//')
+	lst_vGE=$(curl -s -L -o /dev/null -w '%{url_effective}' https://github.com/ethereum/go-ethereum/releases/latest | sed 's|.*/tag/v||')
+	lst_vLH=$(curl -s -L -o /dev/null -w '%{url_effective}' https://github.com/sigp/lighthouse/releases/latest | sed 's|.*/tag/v||')
+	lst_vME=$(curl -s -L -o /dev/null -w '%{url_effective}' https://github.com/flashbots/mev-boost/releases/latest | sed 's|.*/tag/v||')
 
-	lst_vLH1=$(curl -s -I https://github.com/sigp/lighthouse/releases/latest | grep tag)
-	lst_vLH2=${lst_vLH1#*tag/v}
-	lst_vLH=$(echo $lst_vLH2 | sed 's/\r$//')
-
-	lst_vME1=$(curl -s -I https://github.com/flashbots/mev-boost/releases/latest | grep tag)
-	lst_vME2=${lst_vME1#*tag/v}
-	lst_vME=$(echo $lst_vME2 | sed 's/\r$//')
 
 # Client selection
 	echo ""
@@ -71,7 +64,7 @@ echo "---------------------------------------------------------------"
 
 echo ""
 echo ""
-echo -n "[1,2,3] 엽력 : "
+echo -n "[1,2,3] 입력 : "
 read select
 
 
